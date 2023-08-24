@@ -1,0 +1,25 @@
+* {
+    text-align: center;
+    margin: 0 0 1% 0;
+    padding: 0;
+
+
+}
+
+.box1 {
+    padding: 2%;
+    background-color: lightblue;
+
+}
+
+.box2 {
+    padding: 4%;
+    background-color: lightblue;
+}
+
+.box3 {
+    display: inline-block;
+    padding: 12.5%;
+    background-color: lightblue;
+    margin: 0 0.5% 0 0.5%;
+}
