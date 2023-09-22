@@ -1,9 +1,3 @@
-var a = "Agaram";
-var b = 4;
-var c = true;
-var e = 2.06;
-var f = 2.00;
-let g = ["sunday", "monday", "tuesday"];
 var my_resume = {
     Objective: "To be a good full stack developer and to gain more knowledge on other areas .",
     Name: "Gnanlin Renisha G R",
@@ -80,76 +74,28 @@ var my_resume = {
     },
     "Declaration": "I heareby declare that the above given information is true to my knowledge."
 }
-// console.log(typeof (a))
-// console.log(typeof (b))
-// console.log(typeof (c))
-// console.log(typeof (e))
-// console.log(typeof (f))
-
-// console.log(g.length)
-// console.log(g[g.length - 1])
-
-// console.log(g)
-// g[2] = "wednesday"
-// g[3] = "thursday"
-// g.push("friday")
-// console.log(g)
-// g.pop(0)
-// console.log(g)
-// let detalis = {
-//     Level: "HSC",
-//     Board_or_University: "State Board",
-//     School_or_College: "Christuraja Matriculation Higher School,Marthandam",
-//     Year: 2019,
-//     Percentage_or_CGPA: "80.7%"
-// }
-// detalis.Year = "2019"
-// detalis.DOB = "16-04-2002"
-// console.log(detalis)
-// my_resume.Educational_Qualification[0].citie = "marthandam"
-// console.log(my_resume)
-// function getname() {
-//     console.log("welcome")
-// }
-// getname()
-// function names(x) {
-//     console.log(x)
-// }
-// names("reni")
-// for (var i = 0; i < 5; i++) {
-//     console.log(i)
-// }
-// for (var i = 0; i > -10; i--) {
-//     console.log(i)
-// }
-
-// week = ["sunday", "monday", "tuesday", "wednesday"]
-// for (var i = 0; i < week.length; i++) {
-//     console.log(week[i])
-// }
-
-// for (var i = 0; i < 3; i++) {
-//     console.log(my_resume.Educational_Qualification[i].Level)
-// }
-// detail = [{
-//     Name: "Gnanlin Renisha G R",
-//     Email: "gnaninrenisha@gmail.com",
-//     Mobile_no: 8300297958
-// }, {
-//     Name: "Reni G R",
-//     Email: "renisha@gmail.com",
-//     Mobile_no: 8300297958
-// }, {
-//     Name: "Gnanli",
-//     Email: "gnanin@gmail.com",
-//     Mobile_no: 8300297958
-// }]
-// for (var i = 0; i < detail.length; i++) {
-//     console.log(detail[i].Name)
-// }
 function education(x) {
     for (var i = 0; i < x.length; i++) {
         console.log((i + 1) + "." + (x[i].Level))
     }
 }
 education(my_resume.Educational_Qualification)
+
+
+function edu(x) {
+    for (var i = x.length - 1; i >= 0; i--) {
+        console.log((x[i].Level))
+    }
+}
+edu(my_resume.Educational_Qualification)
+localStorage.setItem("name", true)
+console.log(localStorage.getItem("name"))
+m = localStorage.getItem("name")
+console.log(typeof (m))
+// sessionStorage.setItem("name","Agaram");
+var list = ["a", "b", "c"];
+var stringlist = JSON.stringify(list);
+localStorage.setItem("new", stringlist)
+var list_1 = localStorage.getItem("new");
+var clist = JSON.parse(list_1);
+console.log(clist[1])
