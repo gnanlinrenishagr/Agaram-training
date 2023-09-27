@@ -1,0 +1,41 @@
+* {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(171, 243, 219);
+}
+
+label {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+button {
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 600;
+}
+
+p {
+    margin:4% 10%;
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 600;
+
+}
+
+table {
+    margin: 0 25%;
+    font-style: italic;
+    font-weight: 600;
+}
+
+div {
+    margin: 5% 10%;
+}
