@@ -1,0 +1,38 @@
+* {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: url(https://www.desktopbackground.org/download/o/2015/02/19/905234_background-images-for-html-hd-wallpapers-and-pictures_1920x1080_h.jpg);
+    background-size: 100%;
+    
+ 
+}
+
+label {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    color: white;
+}
+
+
+
+p {
+    /* margin:4% 10%; */
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 600;
+    color: white;
+
+}
+
+
+
+div {
+    margin: 2% 0%;
+}

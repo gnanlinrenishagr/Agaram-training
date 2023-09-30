@@ -23,25 +23,48 @@ console.log(auth)
 function logincheck() {
     let user_detail = document.getElementById("email").value
     let password = document.getElementById("password").value
-    dataRef.once('value')
-        .then(function (snapshot) {
-            let data = snapshot.val();
-            console.log(data);
-            if (data) {
-                for (i = 0; i < data.length; i++) {
-
-                    if ((data[i].email == user_detail) && (data[i].password == password)) {
-                        alert("login successfully")
-
-                        localStorage.setItem("loggeduser", true)
-                        localStorage.setItem("loggedusername", data[i].name)
-                        window.location = "home.html";
-
-                    }
-
-                }
-            }
+    auth.signInWithEmailAndPassword(user_detail, password)
+        .then((userCredential) => {
+            alert("Loggedin Sucessfully")
+            window.location = "home.html";
+            console.log(userCredential)
         })
+        .catch((error) => {
+            console.log(error.code)
+            console.log(error.message)
+        });
+
+
+        
+    getAuth()
+        .getUser(uid)
+        .then((userRecord) => {
+            // See the UserRecord reference doc for the contents of userRecord.
+            console.log(`Successfully fetched user data: ${userRecord.toJSON()}`);
+        })
+        .catch((error) => {
+            console.log('Error fetching user data:', error);
+        });
+
+    // dataRef.once('value')
+    //     .then(function (snapshot) {
+    //         let data = snapshot.val();
+    //         console.log(data);
+    //         if (data) {
+    //             for (i = 0; i < data.length; i++) {
+
+    //                 if ((data[i].email == user_detail) && (data[i].password == password)) {
+    //                     alert("login successfully")
+
+    //                     localStorage.setItem("loggeduser", true)
+    //                     localStorage.setItem("loggedusername", data[i].name)
+    //                     window.location = "home.html";
+
+    //                 }
+
+    //             }
+    //         }
+    //     })
 }
 
 
@@ -86,7 +109,7 @@ function checklogin() {
 
 function main() {
     window.location = "registration.html"
-    
+
 }
 
 
@@ -97,29 +120,21 @@ function main() {
 
 function register_firebase() {
 
-
     let reg_email = document.getElementById("email1").value
     let reg_password = document.getElementById("password1").value
     let reg_name = document.getElementById("name1").value
-
-    let reg_data = {
-        name: reg_name,
-        email: reg_email,
-        password: reg_password,
-    }
-
-    dataRef.once('value')
-        .then(function (snapshot) {
-            let data = snapshot.val();
-            console.log(data);
-            if (data) {
-                data.push(reg_data);
-                db.ref('registeredUsers').set(data);
-            }
-            else {
-                db.ref(`registeredUsers/${0}`).set(reg_data);
-            }
+    auth.createUserWithEmailAndPassword(reg_email, reg_password)
+        .then((userCredential) => {
+            alert("Registered Sucessfully")
+            console.log(userCredential)
         })
+        .catch((error) => {
+            console.log(error.code)
+            console.log(error.message)
+        });
+
+
+
 }
 
 
@@ -219,17 +234,7 @@ function edit(b) {
 
 
 
-// to secure users homepage-if logged out opening homepage redirect to front page
 
-
-
-
-function userpage() {
-    if (!localStorage.getItem("loggeduser")) {
-        window.location = "front.html"
-    }
-
-}
 
 
 
