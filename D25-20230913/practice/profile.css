@@ -1,83 +1,91 @@
 * {
-            background-color: aqua;
+    margin: 0;
+    padding: 0;
+}
 
-            padding: 0;
-        }
+body {
+    background-image: url(https://e1.pxfuel.com/desktop-wallpaper/170/829/desktop-wallpaper-white-resume-cv-accountant-backgrounds-cv.jpg);
 
-        body {
-            border: 5px solid darkblue
-        }
+    background-size: 100%;
+    /* border: 5px solid darkblue */
+}
 
-        h1 {
-            color: darkgray;
-            text-align: center;
-            text-transform: uppercase;
-            font-style: italic;
-            font-size: 275%;
-        }
+h1 {
+    color: darkgray;
+    text-align: center;
+    text-transform: uppercase;
+    font-style: italic;
+    font-size: 275%;
+}
 
-        h2 {
-            color: grey;
-            font-style: italic;
-            text-transform: uppercase;
-        }
-
-
-        .box {
-            background-color: darkblue;
-            display: inline-block;
-            text-align: center;
-            font-style: italic;
-            padding-top: 2%;
-            padding-left: 15%;
-
-            padding-bottom: 2%;
-            font-size: 155%;
-        }
-
-        img {
-            float: right;
-            padding-left: 15%;
-            padding-right: 15%;
-            padding-top: 2%;
-            padding-bottom: 2%;
-            width: 12%;
-            border-radius: 75%;
-        }
+h2 {
+    color: grey;
+    font-style: italic;
+    text-transform: uppercase;
+}
 
 
+.box {
+    background-size: 100%;
 
-        .box1 {
-            display: inline-block;
-            padding: 0% 5% 0% 5%;
+    /* background-color: darkblue; */
+    display: inline-block;
+    text-align: center;
+    font-style: italic;
+    padding: 2% 5% 2% 15%;
+    /* padding-left: 10%; */
+    /* padding-right: 10%; */
+
+    /* padding-bottom: 2%; */
+    font-size: 155%;
+}
+
+img {
+    /* z-index: 1; */
+    /* float: right; */
+    /* padding-left: 15%; */
+    /* padding-right: 15%; */
+    /* padding: 1% ; */
+    /* padding-top: 12%; */
+    /* padding-bottom: 2%; */
+    width: 12%;
+    margin-left: 25%;
+    margin-bottom: 7%;
+    border-radius: 75%;
+}
 
 
-        }
 
-        .box2 {
-            display: inline-block;
-            padding: 0% 0% 0 10%;
-        }
+.box1 {
+    display: inline-block;
+    padding: 0% 5% 0% 5%;
 
-        .box3 {
-            display: inline-block;
-            padding: 0 0 0 5%
-        }
 
-        .new {
-            padding-left: 5%;
-        }
+}
 
-        table {
-            font-size: 110%;
-            border-spacing: 0px;
-        }
+.box2 {
+    display: inline-block;
+    padding: 0% 0% 0 10%;
+}
 
-        th {
-            text-transform: uppercase;
-        }
+.box3 {
+    display: inline-block;
+    padding: 0 0 0 5%
+}
 
-        .sixe {
-            font-size: 120%;
-        }
- 
+.new {
+    padding-left: 5%;
+}
+
+table {
+    font-size: 100%;
+
+}
+
+th {
+    text-transform: uppercase;
+}
+
+.sixe {
+    font-size: 120%;
+}

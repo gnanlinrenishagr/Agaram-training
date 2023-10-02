@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.front{
+    position: relative;
+    width: 100%;
+    z-index: -1;
+}
+
+h1 {
+    font-size: 400%;
+    color: white;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+#wel {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+}
+
+#to {
+    position: absolute;
+    top: 45%;
+    left: 20%;
+}
+
+#coorg {
+    position: absolute;
+    top: 69%;
+    left: 23%;
+}
+#the{ position: absolute;
+    top: 20%;
+    right: 35%;
+
+}
+#scot{
+    position: absolute;
+    top: 37%;
+    right: 9%;
+
+}
+#of{
+    position: absolute;
+    top: 55%;
+    right: 19%;
+}
+#india{
+    position: absolute;
+    top: 72%;
+    right: 6%;
+}
+.glow {
+    text-align: center;
+    animation: glow 1s ease-in-out infinite alternate;
+    text-shadow: 0 0 10px #2fbc00, 0 0 20px rgb(13, 255, 0), 0 0 30px rgb(187, 255, 0);
+}
+.middle{
+    position: relative;
+}
+.center{
+    position: absolute;
+    top:5%;
+    left:3%;
+    width:95%
+}
+
+.size{
+    width:30%;
+
+}
+.bottom{
+    position: relative;
+}
+.last{
+    position: absolute;
+    top:5%;
+    left: 10%;
+}
+.img{
+    border: 2px solid white;
+    border-radius: 25%;
+}
