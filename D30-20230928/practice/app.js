@@ -23,9 +23,21 @@ console.log(auth)
 function logincheck() {
     let user_detail = document.getElementById("email").value
     let password = document.getElementById("password").value
+    let user_name = document.getElementById("name").value
     auth.signInWithEmailAndPassword(user_detail, password)
         .then((userCredential) => {
             alert("Loggedin Sucessfully")
+
+
+            const user = auth.currentUser;
+            var userid = user.uid
+            console.log(userid)
+            let u_details = {
+                username: user_name,
+                useremail: user_detail,
+                loggedin: true,
+            }
+            db.ref("registeredUsers/" + userid).set(u_details)
             window.location = "home.html";
             console.log(userCredential)
         })
@@ -35,36 +47,8 @@ function logincheck() {
         });
 
 
-        
-    getAuth()
-        .getUser(uid)
-        .then((userRecord) => {
-            // See the UserRecord reference doc for the contents of userRecord.
-            console.log(`Successfully fetched user data: ${userRecord.toJSON()}`);
-        })
-        .catch((error) => {
-            console.log('Error fetching user data:', error);
-        });
 
-    // dataRef.once('value')
-    //     .then(function (snapshot) {
-    //         let data = snapshot.val();
-    //         console.log(data);
-    //         if (data) {
-    //             for (i = 0; i < data.length; i++) {
-
-    //                 if ((data[i].email == user_detail) && (data[i].password == password)) {
-    //                     alert("login successfully")
-
-    //                     localStorage.setItem("loggeduser", true)
-    //                     localStorage.setItem("loggedusername", data[i].name)
-    //                     window.location = "home.html";
-
-    //                 }
-
-    //             }
-    //         }
-    //     })
+    
 }
 
 
@@ -79,8 +63,26 @@ function logincheck() {
 
 function logoutcheck() {
 
-    localStorage.removeItem("loggeduser")
-    window.location = "login.html"
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+
+            var userid = user.uid;
+            db.ref(`registeredUsers/${userid}`).once("value")
+                .then(function (snapshot) {
+                    var data = snapshot.val();
+                    if (data.loggedin == true) {
+                        let log = {
+                            loggedin: false
+                        }
+                        db.ref(`registeredUsers/` + userid).set(log);
+                        window.location = "home.html"
+
+                    }
+
+
+                })
+        }
+    });
 }
 
 
@@ -91,14 +93,27 @@ function logoutcheck() {
 
 
 function checklogin() {
-    let loggedname = localStorage.getItem("loggedusername")
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            var userid = user.uid;
+            db.ref(`registeredUsers/${userid}`).once("value")
+                .then(function (snapshot) {
+                    var data = snapshot.val();
+                    if (data.loggedin == true) {
+                        document.getElementById("wel").innerHTML = data.username
+                        reg_list()
 
-    if (localStorage.getItem("loggeduser")) {
+                    }
+                })
 
-        document.getElementById("wel").innerHTML = `<span> welcome ${loggedname}</span>`
-        reg_list()
+        }
+    });
+    // let loggedname = localStorage.getItem("loggedusername")
 
-    }
+    // if (localStorage.getItem("loggeduser")) {
+
+
+    // }
 }
 
 
@@ -142,25 +157,43 @@ function register_firebase() {
 
 // add users in table dynamically
 function reg_list() {
-    dataRef.once('value')
-        .then(function (snapshot) {
-            let data = snapshot.val();
-            console.log(data);
-            htmldata = ''
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
 
-            for (let i = 0; i < data.length; i++) {
-                htmldata = htmldata + ` <tr>
-                           <td id="nameinput${[i]}">${data[i].name}</td>
-                           <td>${data[i].email}</td>
-                            <td><button id="edi" type="button" onclick="edit('${data[i].name}')">&#9998</button></td>
-                            <td><button id="del" type="button" onclick="dele('${data[i].name}')" >&#128465</button></td>
-                            </tr>`
-            }
-            document.getElementById("reprow").innerHTML = htmldata
+            var uid = user.uid;
+            db.ref(`registeredUsers/${uid}`).once('value')
+                .then(function (snapshot) {
+                    let data = snapshot.val();
+                    console.log(data);
+                    let htmldata = ''
+                    htmldata = htmldata + ` <tr>
+                         <td >${data.username}</td>
+                         <td>${data.useremail}</td>
+                          <td><button id="edi" type="button" onclick="edit('${data.useremail}')">&#9998</button></td>
+                          <td><button id="del" type="button" onclick="dele('${data.useremail}')" >&#128465</button></td>
+                          </tr>`
+                    document.getElementById("reprow").innerHTML = htmldata
+                }
+                )
 
 
+            // for (let i = 0; i < data.length; i++) {
+            //     console.log(data.uid.username)
+            //     htmldata = htmldata + ` <tr>
+            //          <td id="nameinput${[i]}">${data[i]}</td>
+            //          <td>${data[i]}</td>
+            //           <td><button id="edi" type="button" onclick="edit('${data[i]}')">&#9998</button></td>
+            //           <td><button id="del" type="button" onclick="dele('${data[i]}')" >&#128465</button></td>
+            //           </tr>`
+            // }
+            // document.getElementById("reprow").innerHTML = htmldata
+
+
+            // }
+            // )
         }
-        )
+    });
+
 }
 
 
@@ -231,11 +264,44 @@ function edit(b) {
         })
 
 }
+function secure() {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+
+            var uid = user.uid;
+            db.ref(`registeredUsers/${uid}`).once('value')
+                .then(function (snapshot) {
+                    let data = snapshot.val();
+                    if (data.loggedin==false){
+                        window.location="front.html"
+                    }
+                })
+        }
+    })
+}
 
 
 
+function  loginbut(){
+    // window.location="login.html"
+    // checklogin()
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
 
-
+            var uid = user.uid;
+            db.ref(`registeredUsers/${uid}`).once('value')
+                .then(function (snapshot) {
+                    let data = snapshot.val();
+                    if (data.loggedin==true){
+                        window.location="home.html"
+                    }
+                    else{
+                        window.location="login.html"
+                    }
+                })
+        }
+    })
+}
 
 
 
