@@ -47,6 +47,7 @@ function handmulkey(p_key, ele, ski) {
         else {
 
             resume_builder[p_key].push(element.value)
+            display()
         }
         element.value = ""
         displayarray(p_key)
@@ -68,11 +69,11 @@ function handmulkey(p_key, ele, ski) {
         }
         displayarrayobject(each_tmp)
         each_tmp = {}
-
+        display()
     }
 
 
-    display()
+  
 
 }
 function displayarray(p_key, ski) {
@@ -120,14 +121,12 @@ function del(p_key, ele, ski) {
     displayarray(p_key, ski)
 
 }
-function display() {
-
-    document.getElementById("display_data").innerHTML = JSON.stringify(resume_builder, undefined, 2)
-}
-
 function handmulobject(ele) {
 
     each_tmp[ele.name] = ele.value
 
 }
+function display() {
 
+    document.getElementById("display_data").innerHTML = JSON.stringify(resume_builder, undefined, 2)
+}
