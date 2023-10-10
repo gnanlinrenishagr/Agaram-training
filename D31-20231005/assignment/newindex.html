@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Resume Builder</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="newstyle.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -14,30 +14,30 @@
         <form>
             <div class="row">
                 <div class="mb-3 row">
-                    <label for="inputText" class="col-2 col-form-label">Objective</label>
+                    <label for="inputobj" class="col-2 col-form-label">Objective</label>
                     <div class="col-10">
-                        <input type="text" class="form-control-plaintext" id="inputText" value="" name="Objective"
+                        <input type="text" class="form-control-plaintext" id="inputobj" value="" name="Objective"
                             onkeyup="parsedata(this)">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="inputText" class="col-2 col-form-label">Name</label>
+                    <label for="inputname" class="col-2 col-form-label">Name</label>
                     <div class="col-10">
-                        <input type="text" class="form-control-plaintext" id="inputText" value="" name="Name"
+                        <input type="text" class="form-control-plaintext" id="inputname" value="" name="Name"
                             onkeyup="parsedata(this)">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="inputText" class="col-2 col-form-label">Address</label>
+                    <label for="inputadd" class="col-2 col-form-label">Address</label>
                     <div class="col-10">
-                        <input type="text" class="form-control-plaintext" id="inputText" value="" name="Address"
+                        <input type="text" class="form-control-plaintext" id="inputadd" value="" name="Address"
                             onkeyup="parsedata(this)">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="inputText" class="col-2 col-form-label">Email</label>
+                    <label for="inputmail" class="col-2 col-form-label">Email</label>
                     <div class="col-10">
-                        <input type="text" class="form-control-plaintext" id="inputText" value="" name="Email"
+                        <input type="text" class="form-control-plaintext" id="inputmail" value="" name="Email"
                             onkeyup="parsedata(this)">
                     </div>
                 </div>
@@ -46,24 +46,24 @@
             <div class="row">
                 <h3>Personal Details</h3>
                 <div class="mb-3 row">
-                    <label for="inputText" class="col-2 col-form-label">Father Name</label>
+                    <label for="inputfn" class="col-2 col-form-label">Father Name</label>
                     <div class="col-10">
-                        <input type="text" class="form-control-plaintext" id="inputText" value="" name="Father Name"
+                        <input type="text" class="form-control-plaintext" id="inputfn" value="" name="Father Name"
                             onkeyup="parsedata(this,'personal_details')">
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="inputText" class="col-2 col-form-label">Mother Name</label>
+                    <label for="inputmn" class="col-2 col-form-label">Mother Name</label>
                     <div class="col-10">
-                        <input type="text" class="form-control-plaintext" id="inputText" value="" name="Mother Name"
+                        <input type="text" class="form-control-plaintext" id="inputmn" value="" name="Mother Name"
                             onkeyup="parsedata(this,'personal_details')">
                     </div>
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="inputText" class="col-2 col-form-label">Date of Birth</label>
+                <label for="dob" class="col-2 col-form-label">Date of Birth</label>
                 <div class="col-10">
-                    <input type="text" class="form-control-plaintext" id="inputText" value="" name="Date of Birth"
+                    <input type="text" class="form-control-plaintext" id="dob" value="" name="DOB"
                         onkeyup="parsedata(this)">
                 </div>
             </div>
@@ -101,7 +101,7 @@
             </div>
             <hr />
             <h3>Educational Qualification</h3>
-            <div class="mb-3 row">
+            <div class="mb-3 row" >
                 <div class="col-2">
                     <input type="text" class="form-control-plaintext" placeholder="Institute" value="" id="inst_name"
                         name="inst_name" onkeyup="handmulobject(this)">
@@ -121,46 +121,46 @@
                 <div class="col-2">
                     <button type="button" onclick="handmulkey('Educational Qualification',null,'item')">Add</button>
                 </div>
-
+             
                 <div>
+                    
+                        <table class="table table-dark table-striped" border="1px" id="item">
+                            
+                  
 
-                    <table class="table table-dark table-striped" border="1px" id="item">
-
-
-
-                    </table>
-
+                        </table>
+                   
 
 
                 </div>
 
             </div>
             <h3>Projects</h3>
-            <div class="mb-3 row">
+            <div class="mb-3 row" >
                 <div class="col-2">
-                    <input type="text" class="form-control-plaintext" placeholder="project title" value=""
-                        id="projecttitle" name="projecttitle" onkeyup="handmulobject(this)">
+                    <input type="text" class="form-control-plaintext" placeholder="project title" value="" id="projecttitle"
+                        name="projecttitle" onkeyup="handmulobject(this)">
                 </div>
                 <div class="col-2">
-                    <input type="text" class="form-control-plaintext" placeholder="project description" value=""
-                        id="description" name="description" onkeyup="handmulobject(this)">
+                    <input type="text" class="form-control-plaintext" placeholder="project description" value="" id="description"
+                        name="description" onkeyup="handmulobject(this)">
                 </div>
                 <div class="col-2">
                     <input type="number" class="form-control-plaintext" placeholder="Year" value="" id="pyear"
                         name="pyear" onkeyup="handmulobject(this)">
                 </div>
-
+               
                 <div class="col-2">
                     <button type="button" onclick="handmulkey('Project Details',null,'pitem')">Add</button>
                 </div>
-                <div>
+                <div    >
+                    
+                        <table class="table table-dark table-striped" border="1px" id="pitem">
+                            
+                  
 
-                    <table class="table table-dark table-striped" border="1px" id="pitem">
-
-
-
-                    </table>
-
+                        </table>
+                   
 
 
                 </div>
@@ -173,9 +173,9 @@
 
 
             <div class="mb-3 row">
-                <label for="inputText" class="col-2 col-form-label">Declaration</label>
+                <label for="inputdec" class="col-2 col-form-label">Declaration</label>
                 <div class="col-10">
-                    <input type="text" class="form-control-plaintext" id="inputText" value="" name="Declaration"
+                    <input type="text" class="form-control-plaintext" id="inputdec" value="" name="Declaration"
                         onkeyup="parsedata(this)">
                 </div>
             </div>
@@ -193,14 +193,8 @@
             </div>
         </div>
     </div>
-    <div><button type="button" class="btn btn-primary" onclick="create()">Submit</button>
-        <a href="index1.html">Resume Details</a>
-    </div>
-   
 </body>
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-    crossorigin="anonymous"></script>
-<script src="js/script.js" type="text/javascript"></script>
+<script src="newscript.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>

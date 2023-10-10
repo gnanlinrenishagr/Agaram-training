@@ -1,10 +1,66 @@
 let resume_builder = {
-
+    "Objective": "To become a good developer",
+    "Name": "Gnanlin Renisha G R",
+    "Address": "25-7/a1",
+    "Email": "gnaninrenisha@gmail.com",
+    "personal_details": {
+        "Father Name": "S Gnanaseelan",
+        "Mother Name": "M Renuka"
+    },
+    "DOB": "16-04-2002",
+    "Skill": [
+        "html",
+        "css",
+        "javascript"
+    ],
+    "hobby": [
+        "music",
+        "playing chess",
+        "gardening"
+    ],
+    "Educational Qualification": [
+        {
+            "inst_name": "CMHSS",
+            "level": "12",
+            "year": "2019",
+            "Percentage": "80"
+        },
+        {
+            "inst_name": "CMHSS",
+            "level": "10",
+            "year": "2017",
+            "Percentage": "96"
+        }
+    ],
+    "Project Details": [
+        {
+            "projecttitle": "Measuring the growth of economic freedom",
+            "description": "An index of economic index",
+            "pyear": "2023"
+        }
+    ],
+    "Declaration": "I hereby declare the above given information is true unto my knowledge"
 }
+// alert(resume_builder.Objective)
+
 let each_tmp = {
 
 }
-let username="gnanlinrenisha"
+function storeddata(){
+    document.getElementById("inputobj").value=resume_builder.Objective
+    document.getElementById("inputname").value=resume_builder.Name
+    document.getElementById("inputadd").value=resume_builder.Address
+    document.getElementById("inputmail").value=resume_builder.Email
+    document.getElementById("inputdec").value=resume_builder.Declaration
+    document.getElementById("inputfn").value=resume_builder.personal_details["Father Name"]
+    document.getElementById("inputmn").value=resume_builder.personal_details["Mother Name"]
+    document.getElementById("dob").value=resume_builder.DOB
+    for(i=0;i<resume_builder.resume_Skill.length;i++){
+        document.getElementById("skillitem").value=resume_builder.resume_Skill[i]
+    }
+
+}
+
 function parsedata(ele, p_key) {
 
     if (p_key) {
@@ -26,8 +82,8 @@ function parsedata(ele, p_key) {
 
         resume_builder[ele.name] = ele.value
     }
-
     display()
+    
 }
 function handmulkey(p_key, ele, ski) {
 
@@ -154,96 +210,4 @@ function display() {
     document.getElementById("display_data").innerHTML = JSON.stringify(resume_builder, undefined, 2)
     console.log(resume_builder)
 }
-function create(){
-    $.ajax({
-        type: "post",
-        url: "http://agaram.academy/api/action.php",
-        data: {request : "create_resume",
-            user : username,
-            resume:resume_builder
-            },
-
-        success: function (res) {
-           
-            console.log("response",res)
-      
-        },
-        error: function (error) {
-            console.log("err", error)
-        }
-    })
-}
-function seeresume(){
-    $("#table").show()
-    $.ajax({
-        type: "get",
-        url: "http://agaram.academy/api/action.php",
-        data: {
-            request : "get_user_resume",
-            user : username,
-            },
-
-        success: function (res) {
-           let data=JSON.parse(res)
-            console.log("response",data)
-            let tabledata=""
-            for(i=0;i<data.data.length;i++){
-                tabledata=tabledata+`<tr>
-                <th>${data.data[i].id}</th>
-                <td>${data.data[i].user}</td>
-                <td><button type="button" class="btn btn-primary" onclick="delresume(${data.data[i].id})">Delete</button></td>
-                <td><a href="list.html?id=${data.data[i].id}">List</a></td>
-              </tr>`
-            }
-            $("#resume").html(tabledata)
-            console.log(tabledata)
-      
-        },
-        error: function (error) {
-            console.log("err", error)
-        }
-    })
-}
-function delresume(id){
-    $.ajax({
-        type: "get",
-        url: "http://agaram.academy/api/action.php",
-        data: {
-            request : "delete_user_resume",
-            user : username,
-            id
-            },
-
-        success: function (res) {
-           let data=JSON.parse(res)
-            console.log("response",data)
-            seeresume()
-            
-      
-        },
-        error: function (error) {
-            console.log("err", error)
-        }
-    })
-}
-function listresume(id){
-    console.log("hi",id)
-    $.ajax({
-        type: "get",
-        url: "http://agaram.academy/api/action.php",
-        data: {
-            request : "get_resume_by_id",
-            user : username,
-            id
-            },
-
-        success: function (res) {
-           let data=JSON.parse(res)
-            console.log("response",data)
-      
-        },
-        error: function (error) {
-            console.log("err", error)
-        }
-    })
-}
+storeddata()
