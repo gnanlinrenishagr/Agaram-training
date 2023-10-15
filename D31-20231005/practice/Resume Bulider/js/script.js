@@ -4,7 +4,7 @@ let resume_builder = {
 let each_tmp = {
 
 }
-let username="gnanlinrenisha"
+let username = "gnanlinrenisha"
 function parsedata(ele, p_key) {
 
     if (p_key) {
@@ -125,24 +125,28 @@ function displayobject(p_key, para) {
     let html = ''
     for (i = 0; i < resume_builder[p_key].length; i++) {
         let data = resume_builder[p_key][i]
+        let td_html = ''
         for (const key in data) {
-            html = html + `<tr><td>${key}</td><td>${data[key]}</td><td><button type='button'class='btn btn-primary' onclick="del1('${p_key}','${data[key]}','${key}','${para}')">Delete</button></td></tr>`
+            td_html = td_html + `<td>${data[key]}</td>`
 
             console.log(`${key}:${data[key]}`)
+
         }
+        console.log(i)
+        t_body = td_html + `<td><button type="button" class="btn btn-primary" onclick="del1('${p_key}','${i}','${para}')">Delete</button></td>`
+        html = html + '<tr>' + t_body + '</tr>'
     }
     document.getElementById(para).innerHTML = html
 }
-function del1(p_key, dkey, key, para) {
-    console.log("hi")
-    let data = []
-    for (i = 0; i < resume_builder[p_key].length; i++) {
+function del1(p_key, ele, para) {
+    
 
-        let keysof = resume_builder[p_key]
-        let nd = keysof[i][key]
-        console.log(nd)
-        if (nd != dkey) {
-            data.push(keysof[i])
+    let data = []
+  
+    for (i = 0; i < resume_builder[p_key].length; i++) {
+        console.log("all", resume_builder[p_key])
+        if (resume_builder[p_key][i] != resume_builder[p_key][ele]) {
+            data.push(resume_builder[p_key][i])
         }
     }
     resume_builder[p_key] = data
@@ -154,96 +158,163 @@ function display() {
     document.getElementById("display_data").innerHTML = JSON.stringify(resume_builder, undefined, 2)
     console.log(resume_builder)
 }
-function create(){
+function create() {
     $.ajax({
         type: "post",
         url: "http://agaram.academy/api/action.php",
-        data: {request : "create_resume",
-            user : username,
-            resume:resume_builder
-            },
+        data: {
+            request: "create_resume",
+            user: username,
+            resume: resume_builder
+        },
 
         success: function (res) {
-           
-            console.log("response",res)
-      
+
+            console.log("response", res)
+            window.location = "index1.html"
+
         },
         error: function (error) {
             console.log("err", error)
         }
     })
 }
-function seeresume(){
-    $("#table").show()
+function seeresume() {
     $.ajax({
         type: "get",
         url: "http://agaram.academy/api/action.php",
         data: {
-            request : "get_user_resume",
-            user : username,
-            },
+            request: "get_user_resume",
+            user: username,
+        },
 
         success: function (res) {
-           let data=JSON.parse(res)
-            console.log("response",data)
-            let tabledata=""
-            for(i=0;i<data.data.length;i++){
-                tabledata=tabledata+`<tr>
+            let data = JSON.parse(res)
+            console.log("response", data)
+            let tabledata = ""
+            for (i = 0; i < data.data.length; i++) {
+                tabledata = tabledata + `<tr>
                 <th>${data.data[i].id}</th>
                 <td>${data.data[i].user}</td>
                 <td><button type="button" class="btn btn-primary" onclick="delresume(${data.data[i].id})">Delete</button></td>
-                <td><a href="list.html?id=${data.data[i].id}">List</a></td>
+                <td><a href="list.html?id=${data.data[i].id}">Display My Resume</a></td>
               </tr>`
             }
             $("#resume").html(tabledata)
             console.log(tabledata)
-      
+
         },
         error: function (error) {
             console.log("err", error)
         }
     })
 }
-function delresume(id){
+function delresume(id) {
     $.ajax({
         type: "get",
         url: "http://agaram.academy/api/action.php",
         data: {
-            request : "delete_user_resume",
-            user : username,
+            request: "delete_user_resume",
+            user: username,
             id
-            },
+        },
 
         success: function (res) {
-           let data=JSON.parse(res)
-            console.log("response",data)
+            let data = JSON.parse(res)
+            console.log("response", data)
             seeresume()
-            
-      
+
+
         },
         error: function (error) {
             console.log("err", error)
         }
     })
 }
-function listresume(id){
-    console.log("hi",id)
+
+
+function listresume(id) {
+    console.log("hi", id)
     $.ajax({
         type: "get",
         url: "http://agaram.academy/api/action.php",
         data: {
-            request : "get_resume_by_id",
-            user : username,
+            request: "get_resume_by_id",
+            user: username,
             id
-            },
+        },
 
         success: function (res) {
-           let data=JSON.parse(res)
-            console.log("response",data)
-      
+            let data = JSON.parse(res)
+            console.log(data)
+            let resume_details = JSON.parse(data.data.data)
+            $("#objective").html(resume_details.objective)
+            $("#pro_name").html(resume_details.name)
+            $("#pro_address").html(resume_details.address)
+            $("#pro_email").html(resume_details.email)
+            $("#pro_fname").html(resume_details.personal_details.father_name)
+            $("#pro_mname").html(resume_details.personal_details.mother_name)
+            $("#pro_declaration").html(resume_details.declaration)
+            $("#pro_phone").html(resume_details.phone)
+
+            unordered(resume_details.personality, "#pro_personality")
+            unordered(resume_details.languages_known, "#pro_lang")
+            unordered(resume_details.skill, "#pro_skills")
+            unordered(resume_details.hobby, "#pro_hobby")
+            table(resume_details.educational_qualification, "#pro_education")
+            table(resume_details.project_details, "#pro_project")
+            table(resume_details.experience_details, "#pro_experience")
+
+            console.log(resume_details.experience_details)
+
+
+
         },
         error: function (error) {
             console.log("err", error)
         }
     })
+}
+function unordered(data, id) {
+    let item = ""
+    for (i = 0; i < data.length; i++) {
+        item = item + `<li>${data[i]}</li>`
+    }
+    $(id).html(item)
+
+
+}
+function table(data, id) {
+    let table = ""
+    for (i = 0; i < data.length; i++) {
+        let t_body = ""
+        for (const keys in data[i]) {
+            t_body = t_body + `<td>${data[i][keys]}</td>`
+        }
+        table = table + `<tr>` + t_body + `</tr>`
+    }
+
+
+    $(id).html(table)
+}
+
+function generatepdf() {
+
+
+    const page = document.getElementById('test');
+    console.log(page)
+    var opt = {
+        margin:
+            1,
+        filename: 'Demopdf.pdf',
+        image:
+            { type: 'jpeg', quality: 0.98 },
+        html2canvas:
+            { scale: 2 },
+        jsPDF:                  
+            { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+
+    html2pdf().set(opt).from(page).save();
 }

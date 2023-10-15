@@ -25,20 +25,20 @@ h2 {
 }
 
 
-.box {
-    background-size: 100%;
+/* .box {
+    background-size: 100%; */
 
     /* background-color: darkblue; */
-    display: inline-block;
+    /* display: inline-block;
     text-align: center;
     font-style: italic;
-    padding: 2% 5% 2% 15%;
+    padding: 2% 5% 2% 15%; */
     /* padding-left: 10%; */
     /* padding-right: 10%; */
 
     /* padding-bottom: 2%; */
-    font-size: 155%;
-}
+    /* font-size: 155%;
+} */
 
 img {
     /* z-index: 1; */
@@ -48,15 +48,15 @@ img {
     /* padding: 1% ; */
     /* padding-top: 12%; */
     /* padding-bottom: 2%; */
-    width: 12%;
-    margin-left: 25%;
-    margin-bottom: 7%;
+    width: 9%;
+    /* margin-left: 25%; */
+    /* margin-bottom: 7%; */
     border-radius: 75%;
 }
 
 
 
-.box1 {
+/* .box1 {
     display: inline-block;
     padding: 0% 5% 0% 5%;
 
@@ -88,4 +88,4 @@ th {
 
 .sixe {
     font-size: 120%;
-}
+} */

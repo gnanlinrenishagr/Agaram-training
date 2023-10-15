@@ -2,9 +2,18 @@
     display: flex;
     flex-wrap: wrap;
 }
-h3{
-    background-color: aqua;
+* {
+    margin: 0;
+    padding: 0;
 }
-a{
-    color: white;
+
+body {
+    background-image: url(https://e1.pxfuel.com/desktop-wallpaper/170/829/desktop-wallpaper-white-resume-cv-accountant-backgrounds-cv.jpg);
+
+    background-size: 100%;
 }
+
+h1,h2,h3,h4 {
+    font-style: italic;
+}
+
