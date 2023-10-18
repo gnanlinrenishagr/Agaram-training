@@ -139,10 +139,10 @@ function displayobject(p_key, para) {
     document.getElementById(para).innerHTML = html
 }
 function del1(p_key, ele, para) {
-    
+
 
     let data = []
-  
+
     for (i = 0; i < resume_builder[p_key].length; i++) {
         console.log("all", resume_builder[p_key])
         if (resume_builder[p_key][i] != resume_builder[p_key][ele]) {
@@ -252,11 +252,12 @@ function listresume(id) {
             $("#pro_name").html(resume_details.name)
             $("#pro_address").html(resume_details.address)
             $("#pro_email").html(resume_details.email)
+            $("#pro_desig").html(resume_details.desig)
             $("#pro_fname").html(resume_details.personal_details.father_name)
             $("#pro_mname").html(resume_details.personal_details.mother_name)
             $("#pro_declaration").html(resume_details.declaration)
             $("#pro_phone").html(resume_details.phone)
-
+            $("#pro_dob").html(resume_details.date_of_birth)
             unordered(resume_details.personality, "#pro_personality")
             unordered(resume_details.languages_known, "#pro_lang")
             unordered(resume_details.skill, "#pro_skills")
@@ -311,7 +312,7 @@ function generatepdf() {
             { type: 'jpeg', quality: 0.98 },
         html2canvas:
             { scale: 2 },
-        jsPDF:                  
+        jsPDF:
             { unit: 'in', format: 'letter', orientation: 'portrait' }
     };
 

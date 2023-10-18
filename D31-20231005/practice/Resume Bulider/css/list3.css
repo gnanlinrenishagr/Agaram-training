@@ -1,0 +1,183 @@
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
+body {
+  margin: 0;
+  font-family: "Mukta", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000000;
+  text-align: left;
+  background-color: #f3f3f3;
+}
+
+
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+
+
+
+
+
+.badge-white {
+  color: #0e0f0f;
+  background-color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+aside .profile-img-wrapper {
+  text-align: center;
+}
+
+aside .profile-img-wrapper img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+aside .profile-name {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 30px;
+}
+
+aside .profile-designation {
+  padding: 5px 25px;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+
+
+aside .widget {
+  margin-bottom: 28px;
+}
+
+aside .widget .widget-title {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+aside .widget .widget-content {
+  font-size: 13px;
+}
+
+aside .widget .widget-content p {
+  margin-bottom: 5px;
+}
+
+aside .widget .widget-content p:last-of-type {
+  margin-bottom: 10px;
+}
+
+aside .widget.card {
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.08);
+}
+
+aside .widget.card .widget-title {
+  color: #0067f6;
+}
+
+
+
+header {
+  display: flex;
+  padding-left: 240px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background-color: #f3f3f3;
+  z-index: 1000;
+}
+
+
+body {
+  padding: 20px 60px;
+}
+
+
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+
+.content-wrapper {
+  display: flex;
+}
+
+
+
+aside {
+  padding-right: 57px;
+  min-width: 240px;
+}
+
+
+
+main {
+  flex-grow: 1;
+}
+
+main {
+  padding: 36px 60px 24px;
+  background-color: #ffffff;
+  border-top-right-radius: 10px;
+}
