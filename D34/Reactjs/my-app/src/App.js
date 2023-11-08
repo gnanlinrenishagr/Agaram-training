@@ -11,21 +11,24 @@ import Login from './login';
 import { useState } from 'react';
 
 function App() {
-  let [isuser, setisuser] = useState(false)
+  let [isuser, setisuser] = useState({
+    login: false,
+    email: ""
+  })
 
   const router = createBrowserRouter([
 
     {
       path: "/",
-      element: <Login loggedin={isuser} setLogin={setisuser}/>,
+      element: <Login loggedin={isuser} setLogin={setisuser} />,
     },
     {
       path: "/todo",
-      element: <Todos loggedin={isuser} setLogin={setisuser}/>,
+      element: <Todos loggedin={isuser} setLogin={setisuser} />,
     },
     {
       path: "/user",
-      element: <Users/>,
+      element: <Users />,
     },
   ]);
 

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import { Add } from './Add';
 import Header from '../Header';
+import axios from 'axios'
 function Users() {
     let [User, ChangeUser] = useState(["gnanlin", "renlin", "lin", "reni"])
 
@@ -10,6 +11,31 @@ function Users() {
     const del = (i) => {
         let updatedUser = User.filter((f, t) => t != i)
         ChangeUser(updatedUser)
+    }
+    let checkAxios = () => {
+        axios({
+            method: 'get',
+            url: 'https://jsonplaceholder.typicode.com/posts'
+        })
+            .then(function (response) {
+                console.log(response)
+            })
+    }
+    let checkpostAxios = () => {
+
+        axios({
+            method: 'post',
+            url: 'https://jsonplaceholder.typicode.com/posts',
+            data: {
+                "userId": 1,
+                "id": 1,
+                "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+                "body": "quia et suscipitsuscipit recusandae consequuntur expedita et cum molestiae ut ut quas totamnostrum rerum est autem sunt rem eveniet architecto"
+            }
+        })
+            .then(function (response) {
+                console.log(response)
+            });
     }
     return (
         <div className="App">
@@ -27,6 +53,8 @@ function Users() {
                 </tr>)}
             </Table>
             <Add item={User} setitem={ChangeUser} />
+            <button type="button" onClick={() => checkAxios()}>Get axios</button>
+            <button type="button" onClick={() => checkpostAxios()}>Post axios</button>
             <Header />
         </div>
     );

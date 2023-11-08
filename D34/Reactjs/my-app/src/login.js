@@ -1,19 +1,21 @@
 import { useState } from 'react';
-import Todos from './Items/Todo';
-import Header from './Header';
-
+import { useNavigate } from "react-router-dom";
 export default function Login(props) {
     let [details, setdetails] = useState({
         email: "lin@gmail.com",
         password: "123456"
     })
+    const navigate = useNavigate();
     // let user = props.setLogin(true)
     // { props.loggedin }
     const checkLogin = () => {
         if (details.email == "lin@gmail.com" && details.password == "123456") {
 
-            props.setLogin(true)
-
+            props.setLogin({
+                email: details.email,
+                login: true
+            });
+            navigate('/todo')
         }
         else {
 
@@ -24,7 +26,7 @@ export default function Login(props) {
 
     return (
         <div className="App">
-            {JSON.stringify(details)}
+            {/* {JSON.stringify(details)} */}
             <form>
                 <div className="mb-3">
                     <label >Email address</label>
@@ -42,7 +44,7 @@ export default function Login(props) {
                 </div>
                 <button type="button" onClick={() => checkLogin()}>Login</button>
             </form>
-            <Header />
+
         </div>
     )
 }
