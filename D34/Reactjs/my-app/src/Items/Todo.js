@@ -28,7 +28,7 @@ function Todos(props) {
         </tr>)}
       </Table>
       <Add item={Todo} setitem={Changetodo} />
-      {props.loggedin.login ? <h1>welcome {(props.loggedin.email)}</h1> : <h1>"login first</h1>}
+      {props.loggedin.login ? <h1>welcome {(props.loggedin.email)}</h1> : <h1>"login first"</h1>}
       <Header />
     </div>
   );
