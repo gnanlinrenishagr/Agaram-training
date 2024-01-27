@@ -49,7 +49,7 @@ details={"friends":["reni","abi","rathi","shali"],
         "place": "college",
          "year":"2020-2023"}
 print("hai")
-print(details)
+# print(details)
 for x in details:
     print(x)
 

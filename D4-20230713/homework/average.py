@@ -1,9 +1,9 @@
-# num=[85,92,78,90]
-# print(len(num))
-# num1=85
-# num2=92
-# num3=78
-# num4=90
-# total=(num1+num2+num3+num4)
-# Average_Grade=total/len(num)
-# print(Average_Grade)
+num=[85,92,78,90]
+print(len(num))
+num1=85
+num2=92
+num3=78
+num4=90
+total=(num1+num2+num3+num4)
+Average_Grade=total/len(num)
+print(Average_Grade)

@@ -1,0 +1,293 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="/index.6d43eba8.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <div class="row">
+                <div class="mb-3 row">
+                    <label for="inputText" class="col-2 col-form-label">Objective</label>
+                    <div class="col-10">
+                        <input type="text" class="form-control-plaintext" id="inputText" value="" name="objective" onkeyup="parsedata(this)">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputText" class="col-2 col-form-label">Name</label>
+                    <div class="col-10">
+                        <input type="text" class="form-control-plaintext" id="inputText" value="" name="name" onkeyup="parsedata(this)">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputText" class="col-2 col-form-label">Desigination</label>
+                    <div class="col-10">
+                        <input type="text" class="form-control-plaintext" id="inputText" value="" name="desig" onkeyup="parsedata(this)">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputText" class="col-2 col-form-label">Address</label>
+                    <div class="col-10">
+                        <input type="text" class="form-control-plaintext" id="inputText" value="" name="address" onkeyup="parsedata(this)">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputText" class="col-2 col-form-label">Email</label>
+                    <div class="col-10">
+                        <input type="text" class="form-control-plaintext" id="inputText" value="" name="email" onkeyup="parsedata(this)">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputText" class="col-2 col-form-label">Phone Number</label>
+                    <div class="col-10">
+                        <input type="tel" class="form-control-plaintext" id="inputText" value="" name="phone" onkeyup="parsedata(this)">
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <h3>Personal Details</h3>
+                <div class="mb-3 row">
+                    <label for="inputText" class="col-2 col-form-label">Father Name</label>
+                    <div class="col-10">
+                        <input type="text" class="form-control-plaintext" id="inputText" value="" name="father_name" onkeyup="parsedata(this,'personal_details')">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputText" class="col-2 col-form-label">Mother Name</label>
+                    <div class="col-10">
+                        <input type="text" class="form-control-plaintext" id="inputText" value="" name="mother_name" onkeyup="parsedata(this,'personal_details')">
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="inputText" class="col-2 col-form-label">Date of Birth</label>
+                <div class="col-10">
+                    <input type="text" class="form-control-plaintext" id="inputText" value="" name="date_of_birth" onkeyup="parsedata(this)">
+                </div>
+            </div>
+            <hr>
+            <!-- <h3>Skills</h3> -->
+            <div class="mb-3 row">
+                <label class="col-2 col-form-label">Skill</label>
+                <div class="col-3">
+                    <input type="text" class="form-control-plaintext" id="skill_name" value="">
+                </div>
+
+                <div class="col-2">
+                    <button type="button" onclick="handmulkey('skill','skillitem','skill_name')">Add</button>
+                </div>
+                <div class="d-flex flex-row mb-3 nxt" id="skillitem">
+
+                </div>
+
+            </div>
+            <hr>
+            <!-- <h3>Hobbies</h3> -->
+            <div class="mb-3 row">
+                <label class="col-2 col-form-label">Hobbies</label>
+                <div class="col-3">
+                    <input type="text" class="form-control-plaintext" id="hobby_name" value="">
+                </div>
+
+                <div class="col-2">
+                    <button type="button" onclick="handmulkey('hobby','hobbyitem','hobby_name')">Add</button>
+                </div>
+                <div class="d-flex flex-row mb-3 nxt" id="hobbyitem">
+
+                </div>
+
+            </div>
+            <hr>
+            <!-- <h3>Language</h3> -->
+            <div class="mb-3 row">
+                <label class="col-2 col-form-label">Languages Known</label>
+                <div class="col-3">
+                    <input type="text" class="form-control-plaintext" id="lang_name" value="">
+                </div>
+
+                <div class="col-2">
+                    <button type="button" onclick="handmulkey('languages_known','langitem','lang_name')">Add</button>
+                </div>
+                <div class="d-flex flex-row mb-3 nxt" id="langitem">
+
+                </div>
+
+            </div>
+            <!-- <h3>Personality</h3> -->
+            <div class="mb-3 row">
+                <label class="col-2 col-form-label">Personality</label>
+                <div class="col-3">
+                    <input type="text" class="form-control-plaintext" id="per_name" value="">
+                </div>
+
+                <div class="col-2">
+                    <button type="button" onclick="handmulkey('personality','peritem','per_name')">Add</button>
+                </div>
+                <div class="d-flex flex-row mb-3 nxt" id="peritem">
+
+                </div>
+
+            </div>
+            <hr>
+
+            <h3>Educational Qualification</h3>
+            <div class="mb-3 row">
+                <div class="col-2">
+                    <input type="text" class="form-control-plaintext" placeholder="Institute" value="" id="inst_name" name="inst_name" onkeyup="handmulobject(this)">
+                </div>
+                <div class="col-2">
+                    <input type="text" class="form-control-plaintext" placeholder="Level" value="" id="level" name="level" onkeyup="handmulobject(this)">
+                </div>
+                <div class="col-2">
+                    <input type="number" class="form-control-plaintext" placeholder="Year" value="" id="year" name="year" onkeyup="handmulobject(this)">
+                </div>
+                <div class="col-2">
+                    <input type="number" class="form-control-plaintext" placeholder="Percentage" value="" id="Percentage" name="Percentage" onkeyup="handmulobject(this)">
+                </div>
+                <div class="col-2">
+                    <button type="button" onclick="handmulkey('educational_qualification','item')">Add</button>
+                </div>
+
+                <div>
+
+                    <table class="table table-dark table-striped" border="1px">
+                        <thead>
+                            <tr>
+                                <td>Institute</td>
+                                <td>Level</td>
+                                <td>Year</td>
+                                <td>Percentage</td>
+                                <td>Delete</td>
+                            </tr>
+                        </thead>
+                        <tbody id="item">
+
+                        </tbody>
+
+
+                    </table>
+
+
+
+                </div>
+
+            </div>
+            <hr>
+            <h3>Projects</h3>
+            <div class="mb-3 row">
+                <div class="col-2">
+                    <input type="text" class="form-control-plaintext" placeholder="project title" value="" id="projecttitle" name="projecttitle" onkeyup="handmulobject(this)">
+                </div>
+                <div class="col-2">
+                    <input type="text" class="form-control-plaintext" placeholder="project description" value="" id="description" name="description" onkeyup="handmulobject(this)">
+                </div>
+                <div class="col-2">
+                    <input type="number" class="form-control-plaintext" placeholder="Year" value="" id="pyear" name="pyear" onkeyup="handmulobject(this)">
+                </div>
+
+                <div class="col-2">
+                    <button type="button" onclick="handmulkey('project_details','pitem')">Add</button>
+                </div>
+                <div>
+
+                    <table class="table table-dark table-striped" border="1px">
+                        <thead>
+                            <tr>
+                                <td>Project Title</td>
+                                <td>Project Description</td>
+                                <td>Year</td>
+                                <td>Delete</td>
+                            </tr>
+                        </thead>
+                        <tbody id="pitem">
+
+                        </tbody>
+
+                    </table>
+
+
+
+                </div>
+
+            </div>
+
+            <hr>
+            <h3>Experience</h3>
+            <div class="mb-3 row">
+                <div class="col-2">
+                    <input type="text" class="form-control-plaintext" placeholder="Company" value="" id="company" name="company" onkeyup="handmulobject(this)">
+                </div>
+                <div class="col-2">
+                    <input type="text" class="form-control-plaintext" placeholder="Role" value="" id="role" name="role" onkeyup="handmulobject(this)">
+                </div>
+                <div class="col-2">
+                    <input type="number" class="form-control-plaintext" placeholder="Year" value="" id="pyear" name="pyear" onkeyup="handmulobject(this)">
+                </div>
+
+                <div class="col-2">
+                    <button type="button" onclick="handmulkey('experience_details','eitem')">Add</button>
+                </div>
+                <div>
+
+                    <table class="table table-dark table-striped" border="1px">
+                        <thead>
+                            <tr>
+                                <td>Company</td>
+                                <td>Job Role</td>
+                                <td>Year</td>
+                                <td>Delete</td>
+                            </tr>
+                        </thead>
+                        <tbody id="eitem">
+
+                        </tbody>
+
+                    </table>
+
+
+
+                </div>
+
+            </div>
+
+            <hr>
+
+
+
+
+            <div class="mb-3 row">
+                <label for="inputText" class="col-2 col-form-label">Declaration</label>
+                <div class="col-10">
+                    <input type="text" class="form-control-plaintext" id="inputText" value="" name="declaration" onkeyup="parsedata(this)">
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </form>
+        <div class="row">
+            <div class="alert alert-warning">
+                <code><pre id="display_data"></pre></code>
+            </div>
+        </div>
+    </div>
+    <div><button type="button" class="btn btn-primary" id="submit" disabled="true" onclick="create()">Submit</button>
+
+    </div>
+
+<script src="/agaram.3464ddca.js"></script></body>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="/index.f9d8abf9.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</html>

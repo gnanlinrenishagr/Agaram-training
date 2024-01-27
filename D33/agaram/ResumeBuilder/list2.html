@@ -1,0 +1,143 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resume Builder</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="js/script.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+   <style>
+    body{background-color: rgb(237, 252, 247);}
+   </style>
+</head>
+
+<body>
+    <div id="test">
+        <div>
+            <h5 class="text-capitalize" id="pro_name"></h5>
+            <p id="pro_email"></p>
+            <p id="pro_desig"></p>
+        </div>
+
+        <div>
+            <h2 class="p-3 mb-2 bg-light text-dark">CV Highlights</h2>
+
+            <div>
+                <h3>Objective</h3>
+
+                <p class="ms-5" id="objective">
+                </p>
+            </div>
+            <div>
+                <h3>Languages</h3>
+                <ul id="pro_lang">
+
+                </ul>
+            </div>
+            <div>
+                <h3>Personality</h3>
+                <ul id="pro_personality">
+
+                </ul>
+            </div>
+            <div>
+                <h3>Hobbies</h3>
+                <ul id="pro_hobby">
+
+
+                </ul>
+            </div>
+            </p>
+            <h3>Professional Experience</h3>
+            <table class="table   table-hover  table-bordered border-primary  table-light">
+                <thead>
+                    <tr>
+                        <th>Company Name</th>
+                        <th>Job Role</th>
+                        <th>Year</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="pro_experience">
+
+                </tbody>
+
+            </table>
+
+            <h3>Educational Qualifications</h3>
+            <table class="table   table-hover  table-bordered border-primary  table-light">
+                <thead>
+                    <tr>
+                        <th>Institution</th>
+                        <th>Level</th>
+                        <th>Year</th>
+                        <th>Percentage</th>
+
+
+                    </tr>
+                </thead>
+                <tbody id="pro_education">
+
+                </tbody>
+            </table>
+            <h3>Projects</h3>
+            <table class="table   table-hover  table-bordered border-primary  table-light">
+                <thead>
+                    <tr>
+                        <th>Project tittle</th>
+                        <th>Project Description</th>
+                        <th>Year</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="pro_project">
+
+                </tbody>
+
+            </table>
+            <h3>Technical Skills</h3>
+
+            <ul id="pro_skills">
+
+            </ul>
+            <h2 class="p-3 mb-2 bg-light text-dark ">Personal Information:</h2>
+            <h4>Phone Number:<a id="pro_phone"></a></h4>
+            <h4>Date of Birth:<a id="pro_dob"></a></h4>
+            <h4>Father Name:<a id="pro_fname"></a></h4>
+            <h4>Mother Name:<a id="pro_mname"></a></h4>
+            <h4>Address:<a id="pro_address"></a></h4>
+
+
+            <h3>Declaration</h3>
+            <p class="ms-5" id="pro_declaration">
+            </p>
+
+        </div>
+</body>
+<script>
+
+    const queryString = window.location.search;
+    const getparam = new URLSearchParams(queryString);
+    let id = getparam.get('id')
+    // let id = getparam.get('id')
+    // var id = getUrlParameter('id');
+    listresume(id)
+</script>
+
+
+
+</html>

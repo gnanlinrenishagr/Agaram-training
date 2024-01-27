@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+</head>
+
+<body>
+    {%if name=="a"%}
+    <h1>Hi {{name}}</h1>
+    {% else %}
+    <h1>Log out</h1>
+    {%endif%}
+    <ul>
+        {%for each in teammates%}
+        <li><a href="/hello/{{each}}">{{each}}</a></li>
+        {%endfor%}
+    </ul>
+
+</body>
+
+</html>
