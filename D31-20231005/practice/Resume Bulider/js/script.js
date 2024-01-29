@@ -27,7 +27,7 @@ function parsedata(ele, p_key) {
         resume_builder[ele.name] = ele.value
     }
 
-    display()
+    // display()
 }
 function handmulkey(p_key, ele, ski) {
 
@@ -48,7 +48,7 @@ function handmulkey(p_key, ele, ski) {
         else {
 
             resume_builder[p_key].push(element.value)
-            display()
+            // display()
         }
         element.value = ""
         displayarray(p_key, ski)
@@ -71,7 +71,7 @@ function handmulkey(p_key, ele, ski) {
         }
         displayobject(p_key, ski)
         each_tmp = {}
-        display()
+        // display()
     }
 
 
@@ -91,7 +91,7 @@ function displayarray(p_key, ski) {
 
     }
     document.getElementById(ski).innerHTML = htmldata
-    display()
+    // display()
 }
 
 
@@ -112,7 +112,7 @@ function del(p_key, ele, ski) {
 
     resume_builder[p_key] = new_data
 
-    display()
+    // display()
     displayarray(p_key, ski)
 
 }
@@ -150,14 +150,14 @@ function del1(p_key, ele, para) {
         }
     }
     resume_builder[p_key] = data
-    display()
+    // display()
     displayobject(p_key, para)
 }
-function display() {
+// function display() {
 
-    document.getElementById("display_data").innerHTML = JSON.stringify(resume_builder, undefined, 2)
-    console.log(resume_builder)
-}
+//     document.getElementById("display_data").innerHTML = JSON.stringify(resume_builder, undefined, 2)
+//     console.log(resume_builder)
+// }
 function create() {
     $.ajax({
         type: "post",

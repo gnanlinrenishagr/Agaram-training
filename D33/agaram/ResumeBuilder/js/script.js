@@ -25,7 +25,7 @@ let parsedata = (ele, p_key) => {
         resume_builder[ele.name] = ele.value
     }
 
-    display()
+    // display()
 }
 
 let handmulkey = (p_key, ski, ele = null) => {
@@ -40,7 +40,7 @@ let handmulkey = (p_key, ski, ele = null) => {
         if (element.value) {
 
             resume_builder[p_key].push(element.value)
-            display()
+            // display()
             element.value = ""
             displayarray(p_key, ski)
         }
@@ -64,7 +64,7 @@ let handmulkey = (p_key, ski, ele = null) => {
 
         displayobject(p_key, ski)
         each_tmp = {}
-        display()
+        // display()
     }
 
 
@@ -84,7 +84,7 @@ let displayarray = (p_key, ski) => {
 
     }
     document.getElementById(ski).innerHTML = htmldata
-    display()
+    // display()
 }
 
 
@@ -93,7 +93,7 @@ let del = (p_key, ele, ski) => {
     let del_list = resume_builder[p_key].filter((del_item) => del_item != ele)
 
     resume_builder[p_key] = del_list
-    display()
+    // display()
     displayarray(p_key, ski)
 
 }
